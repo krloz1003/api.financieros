@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
 use App\Models\Example\Movie;
+use App\Models\Viatico\Comision;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -36,5 +37,15 @@ $factory->define(Movie::class, function (Faker $faker) {
         'genre' => $gender,
         'year' => $faker->date($format = 'Y', $max = 'now'),
         'duration' => $faker->numberBetween($min = 1, $max = 3).'h '.str_pad($faker->numberBetween($min = 1, $max = 59), 2, "0", STR_PAD_LEFT).'m'   //Str::random(10),        
+    ];
+});
+
+$factory->define(Comision::class, function (Faker $faker) {
+    return [
+        'idEmpleado' => $faker->numberBetween($min = 1, $max = 10),
+        'idDestino' => $faker->numberBetween($min = 1, $max = 20),
+        'fechaInicio' => $faker->date($format = 'd/m/Y', $max = 'now'),
+        'fechaFin' => $faker->date($format = 'd/m/Y', $max = 'now'),
+        'objetico' => $faker->text  
     ];
 });

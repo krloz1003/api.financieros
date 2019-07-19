@@ -13,5 +13,6 @@ class MoviesSeederTable extends Seeder
     public function run()
     {
         factory(Movie::class, 100)->create();
+        factory(Comision::class, 100)->create();
     }
 }
