@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('comision','Viatico\ComisionController')->middleware('cors');
 Route::resource('movies','Example\MovieController')->middleware('cors');
+
+Route::resource('empleados', 'RRHH\EmpleadoController');

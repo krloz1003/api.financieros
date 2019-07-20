@@ -41,11 +41,14 @@ $factory->define(Movie::class, function (Faker $faker) {
 });
 
 $factory->define(Comision::class, function (Faker $faker) {
+    $fechaFin = $faker->date($format = 'd/m/Y', $max = 'now');
+    $fechaInicio = $faker->date($format = 'd/m/Y', $max = $fechaFin);
+
     return [
         'idEmpleado' => $faker->numberBetween($min = 1, $max = 10),
         'idDestino' => $faker->numberBetween($min = 1, $max = 20),
-        'fechaInicio' => $faker->date($format = 'd/m/Y', $max = 'now'),
-        'fechaFin' => $faker->date($format = 'd/m/Y', $max = 'now'),
-        'objetico' => $faker->text  
+        'fechaInicio' => $fechaInicio,
+        'fechaFin' => $fechaFin,
+        'objetivo' => $faker->text  
     ];
 });
